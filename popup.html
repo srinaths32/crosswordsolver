@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Crossword Solver</title>
+  </head>
+  <body style="min-width: 450px; max-height: 550px; text-align: center;">
+    <h1>Crossword Solver</h1> <!-- Header -->
+    <button id="checkPage">Reveal</button> <!-- Reveal Button -->
+    <p id="errorMessage" class="errorMessage"></p> <!-- Error Message (conditionally shown) -->
+    <table id="answers"></table> <!-- Answer Table (conditionally shown) -->
+    <p class="credit">Powered by <a href="http://crossword-solver.io">crossword-solver.io</a></p> <!-- Credit -->
+    <script src="popup.js"></script> <!-- Script to handle clue extraction, solution finding, and solution displaying -->
+  </body>
+  
+  <style>
+    /* Import fonts */
+    @import url('https://fonts.googleapis.com/css?family=Bevan');
+    @import url('https://fonts.googleapis.com/css?family=Libre+Franklin');
+    /* Initialize color variables */
+    :root {
+      --buttonColor: #33658A;
+      --grayBackgroundColor: #CCCCC2;
+      --errorColor: #69385C;
+    }
+    /* Heading text styling */
+    h1 {
+      font-family: "Bevan";
+      font-size: 40px;
+      font-weight: 600;
+      margin: 10px 20px 10px 20px;
+    }
+    /* Credit text styling */
+    .credit {
+      font-family: "Libre Franklin";
+      font-size: 11px;
+      text-align: right;
+      margin-bottom: 0px;
+      margin-top: 10px;
+    }
+    /* Reveal button styling */
+    button {
+      font-family: "Libre Franklin";
+      font-size: 20px;
+      width: 130px;
+      font-weight: 400;
+      background-color: white;
+      border-color: var(--buttonColor);
+      border-style: solid;
+      box-shadow: 0;
+      transition: all .75s ease;
+      letter-spacing: 0.05 em; 
+      padding: 10px 34px;
+      box-shadow: inset 0 0 0 0 var(--buttonColor);
+    }
+    button:hover {
+      box-shadow: inset 130px 0 0 0 var(--buttonColor);
+      color: white;
+      cursor: pointer;
+    }
+    /* Error message styling */
+    .errorMessage {
+      color: var(--errorColor);
+      font-family: "Libre Franklin";
+      font-size: 20px;
+      margin-top: 0px;
+    }
+    /* Table size styling */
+    table {
+      margin: -15px auto 0px auto;
+      width: 88%;
+      border-collapse: collapse;
+    }
+    /* Table header styling */
+    th {
+      padding: 0 15px;
+      text-align: left;
+      color: var(--buttonColor); 
+      font-size: 18px;
+      border-top: 2px solid; 
+      border-bottom: 2px solid; 
+      border-color: var(--buttonColor);
+      font-family: "Libre Franklin";
+      font-weight: 600;
+    }
+    /* Table element styling */
+    td {
+      padding: 0 15px;
+      text-align: left;
+      font-size: 15px;
+      font-family: "Libre Franklin";
+      font-weight: 400;
+    }
+  </style>
+</html>
