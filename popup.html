@@ -4,7 +4,11 @@
     <title>Crossword Solver</title>
   </head>
   <body style="min-width: 450px; max-height: 550px; text-align: center;">
-    <h1>Crossword Solver</h1> <!-- Header -->
+    <!-- Header -->
+    <div class="headerbox">
+      <img src="icon.png" class="icon"><img>  
+      <h1>Crossword Solver</h1> 
+    </div>
     <button id="checkPage">Reveal</button> <!-- Reveal Button -->
     <p id="errorMessage" class="errorMessage"></p> <!-- Error Message (conditionally shown) -->
     <table id="answers"></table> <!-- Answer Table (conditionally shown) -->
@@ -14,20 +18,36 @@
   
   <style>
     /* Import fonts */
-    @import url('https://fonts.googleapis.com/css?family=Bevan');
+    @import url('https://fonts.googleapis.com/css?family=Montagu+Slab');
     @import url('https://fonts.googleapis.com/css?family=Libre+Franklin');
     /* Initialize color variables */
     :root {
       --buttonColor: #33658A;
-      --grayBackgroundColor: #CCCCC2;
-      --errorColor: #69385C;
+      --grayTableColor: #CCCCC2;
+      --errorColor: #000000;
+      --grayBackgroundColor: #f7f7f7;
+    }
+    /* Background styling (off white color) */
+    body {
+      background-color: var(--grayBackgroundColor);
+    }
+    .headerbox {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      justify-content: center;
+    }
+    .icon {
+      height: 50px;
+      width: 50px;
     }
     /* Heading text styling */
     h1 {
-      font-family: "Bevan";
-      font-size: 40px;
-      font-weight: 600;
-      margin: 10px 20px 10px 20px;
+      font-family: "Georgia";
+      font-size: 35px;
+      font-weight: 700;
+      margin: 10px 0px 10px 10px;
+      transform: scaleY(1.2);
     }
     /* Credit text styling */
     .credit {
@@ -43,7 +63,7 @@
       font-size: 20px;
       width: 130px;
       font-weight: 400;
-      background-color: white;
+      background-color: var(--grayBackgroundColor);
       border-color: var(--buttonColor);
       border-style: solid;
       box-shadow: 0;
@@ -67,7 +87,7 @@
     /* Table size styling */
     table {
       margin: -15px auto 0px auto;
-      width: 88%;
+      width: 90%;
       border-collapse: collapse;
     }
     /* Table header styling */

@@ -3,7 +3,11 @@
   "name": "New York Times Crossword Solver",
   "description": "Reveal NYT crossword answers without losing your streak. Powered by crossword-solver.io",
   "version": "1.0",
+  "icons": {
+    "512": "icon.png"
+  },
   "action": {
+    "default_icon": "icon.png",
     "default_popup": "popup.html"
   },
   "permissions": ["scripting", "activeTab"],

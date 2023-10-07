@@ -15,7 +15,7 @@ function display(elementList, elements) {
     // alternate background color (ignoring table header row)
     if (i != 0) {
       if (i % 2 == 1) {
-        tr.style.cssText = `background-color: var(--grayBackgroundColor);`;
+        tr.style.cssText = `background-color: var(--grayTableColor);`;
       }
     }
   
@@ -111,8 +111,8 @@ async function revealClue() {
   let answers;
 
   // check whether nytimes.com/crossword is in url
-  if (! tab.url.includes("nytimes.com/crosswords")) {
-    errorMessage = 'Navigate to crossword page';
+  if (! tab.url.includes("nytimes.com/crosswords/game")) {
+    errorMessage = 'Navigate to game page'; // display error message if not on a crossword game page
     errorTriggered = true;
   } else {
     // get all html code and save it in result
