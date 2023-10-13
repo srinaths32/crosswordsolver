@@ -201,6 +201,20 @@ function getCurrentDate() {
   return `${year}-${month}-${day}`;
 }
 
+// function to get date on screen in yyyy-mm-dd format for mini
+function getMiniDate(fullText) {
+  adjusted = fullText.slice("The Mini Crossword".length);
+  regex = /\b([A-Z][a-z]+day, [A-Z][a-z]+ \d{1,2}, \d{4})\b/g; // regex to get date from html
+  dateString = adjusted.match(regex); // find first match
+  console.log(dateString);
+  now = new Date(dateString); // turn string into a date object
+  const year = now.getFullYear();
+  const month = (now.getMonth() + 1).toString().padStart(2, '0'); // Adding 1 to the month because it's zero-based
+  const day = now.getDate().toString().padStart(2, '0');
+
+  return `${year}-${month}-${day}`;
+}
+
 // function to get difference between today and another day
 function dateDiffInDays(firstDate) {
   const oneDay = 24 * 60 * 60 * 1000; // One day in milliseconds
@@ -283,7 +297,7 @@ async function revealClue() {
         apiUrl += 'mini/';
         datePart = extractFormattedDateFromURL(url, false);
         if (datePart != null) apiUrl += datePart + '.json';
-        else apiUrl += getCurrentDate() + '.json'; // adjustment if getting today's mini
+        else apiUrl += getMiniDate(result) + '.json'; // adjustment if getting today's mini
       } else {
         apiUrl += 'bonus/';
         apiUrl += extractFormattedDateFromURL(url, true) + '.json';
