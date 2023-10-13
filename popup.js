@@ -15,6 +15,7 @@ function showErrorMessage(errorMessage) {
   
   // show error
   const errorText = document.getElementById("errorMessage");
+  errorText.setAttribute('class', 'errorMessage errorMoved');
   errorText.innerHTML = errorMessage;
 }
 
@@ -126,7 +127,7 @@ async function getGame() {
     game = Game.Connections;
     showConnectionsButtons();
   } else {
-    showErrorMessage("Navigate to a puzzle page");
+    showErrorMessage("Navigate to a NYT puzzle page");
   }
 }
 // call above function onloaded 
@@ -217,12 +218,14 @@ function getMiniDate(fullText) {
 
 // function to get difference between today and another day
 function dateDiffInDays(firstDate) {
+  // adjust given date to reflect same time in this timezone
+  firstDate.setTime(firstDate.getTime() + firstDate.getTimezoneOffset() * 60 * 1000);
+
   const oneDay = 24 * 60 * 60 * 1000; // One day in milliseconds
   const secondDate = new Date();
-
+  console.log(secondDate);
   const diffInMilliseconds = Math.abs(firstDate - secondDate);
-  const diffInDays = Math.round(diffInMilliseconds / oneDay);
-
+  const diffInDays = Math.trunc(diffInMilliseconds / oneDay);
   return diffInDays;
 }
 
@@ -378,7 +381,7 @@ async function revealConnections(level) {
     // status "OK"
     case 200:
       var fullDict = await response.json(); // get api response
-      groups = fullDict[dateDiffInDays(new Date('2023-06-12')) - 1].groups; // get today's answers
+      groups = fullDict[dateDiffInDays(new Date('2023-06-12'))].groups; // get today's answers
       
       // get specific answer corresponding to level parameter
       for (const [theme, valueDict] of Object.entries(groups)) {
