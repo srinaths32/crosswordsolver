@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "New York Times Crossword Solver",
-  "description": "Reveal NYT crossword answers without losing your streak. Powered by crossword-solver.io",
+  "name": "New York Times Puzzle Solver",
+  "description": "Reveal NYT puzzle answers without losing your streak. Solves all Crosswords, Spelling Bees, Wordles, Letter-Boxed, and Connections.",
   "version": "1.0",
   "icons": {
     "512": "icon.png"
@@ -11,5 +11,5 @@
     "default_popup": "popup.html"
   },
   "permissions": ["scripting", "activeTab"],
-  "host_permissions": ["https://crossword-solver.io/"]
+  "host_permissions": ["https://nytimes.com/"]
 }

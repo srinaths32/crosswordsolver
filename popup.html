@@ -7,12 +7,10 @@
     <!-- Header -->
     <div class="headerbox">
       <img src="icon.png" class="icon"><img>  
-      <h1>Crossword Solver</h1> 
+      <h1>Puzzle Solver</h1> 
     </div>
     <button id="checkPage">Reveal</button> <!-- Reveal Button -->
     <p id="errorMessage" class="errorMessage"></p> <!-- Error Message (conditionally shown) -->
-    <table id="answers"></table> <!-- Answer Table (conditionally shown) -->
-    <p class="credit">Powered by <a href="http://crossword-solver.io">crossword-solver.io</a></p> <!-- Credit -->
     <script src="popup.js"></script> <!-- Script to handle clue extraction, solution finding, and solution displaying -->
   </body>
   
@@ -25,7 +23,12 @@
       --buttonColor: #33658A;
       --grayTableColor: #CCCCC2;
       --errorColor: #000000;
-      --grayBackgroundColor: #f7f7f7;
+      --grayBackgroundColor: #fafafa;
+
+      --yellowConnectionsColor: #F9DF6D;
+      --greenConnectionsColor: #A0C35A;
+      --blueConnectionsColor: #B0C4EF;
+      --purpleConnectionsColor: #BA81C5;
     }
     /* Background styling (off white color) */
     body {
@@ -84,31 +87,48 @@
       font-size: 20px;
       margin-top: 0px;
     }
-    /* Table size styling */
-    table {
-      margin: -15px auto 0px auto;
-      width: 90%;
-      border-collapse: collapse;
+    /* Connections styling */
+    .yellow-bg {
+      background-color: var(--yellowConnectionsColor);
     }
-    /* Table header styling */
-    th {
-      padding: 0 15px;
-      text-align: left;
-      color: var(--buttonColor); 
-      font-size: 18px;
-      border-top: 2px solid; 
-      border-bottom: 2px solid; 
-      border-color: var(--buttonColor);
-      font-family: "Libre Franklin";
-      font-weight: 600;
+    .green-bg {
+      background-color: var(--greenConnectionsColor);
     }
-    /* Table element styling */
-    td {
-      padding: 0 15px;
-      text-align: left;
-      font-size: 15px;
-      font-family: "Libre Franklin";
-      font-weight: 400;
+    .blue-bg {
+      background-color: var(--blueConnectionsColor);
+    }
+    .purple-bg {
+      background-color: var(--purpleConnectionsColor);
+    }
+    .connectionsDiv {
+      margin: 20px auto;
+      width: 350px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+    .connectionsButton {
+      width: 50px;
+      height: 50px;
+    }
+    .connectionsAnswerDiv {
+      margin: 20px auto;
+      width: 350px;
+      display: flex;
+      flex-direction: column;
+      border-radius: 5px;
+    }
+    .groupDiv {
+      width: 200px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+
+    /* Spelling Bee and Letter Boxed styling */
+    .answerList {
+      list-style-type: none;
+      padding: 0px;
     }
   </style>
 </html>
