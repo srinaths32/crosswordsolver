@@ -29,6 +29,7 @@
       --greenConnectionsColor: #A0C35A;
       --blueConnectionsColor: #B0C4EF;
       --purpleConnectionsColor: #BA81C5;
+
       --greenWordleColor: #538D4E;
     }
     /* Background styling (off white color) */
@@ -83,6 +84,7 @@
     }
     .errorMoved {
       margin-top: 10px;
+      margin-bottom: 10px;
     }
     /* Connections styling */
     .yellow-bg {
@@ -97,50 +99,87 @@
     .purple-bg {
       background-color: var(--purpleConnectionsColor);
     }
+    .connectionsHeader {
+      font-family: "Libre Franklin";
+      font-size: 17px;
+      font-weight: 100;
+      margin: 20px auto 0px auto;
+    }
     .connectionsDiv {
-      margin: 20px auto;
+      margin: 12px auto;
       width: 350px;
       display: flex;
       flex-direction: row;
       justify-content: space-evenly;
     }
     .connectionsButton {
-      width: 50px;
-      height: 50px;
+      width: 60px;
+      height: 60px;
+      transition: all .2s ease;
+      cursor: pointer;
+    }
+    .connectionsButton:hover {
+      box-shadow: inset 0px 0px 1px 1px black;
     }
     .connectionsAnswerDiv {
       margin: 20px auto;
-      width: 350px;
+      width: 400px;
       display: flex;
       flex-direction: column;
+      row-gap: 5px;
       border-radius: 5px;
     }
-    .groupDiv {
-      width: 200px;
+    .themeText {
+      font-family: 'Libre Franklin';
+      font-size: 17px;
+      font-weight: 800;
+      margin: 15px auto 0px auto;
+    }
+    .connectionsAnswerText {
+      font-family: 'Libre Franklin';
+      font-size: 17px;
+      font-weight: 100;
+      margin: 0px auto 15px auto;
+    }
+    /* Crossword styling */
+    .crosswordClueAndAnswer {
       display: flex;
-      flex-direction: row;
-      justify-content: space-evenly;
+      flex-flow: row wrap;
+      margin: 15px auto;
+      column-gap: 15px;
+      align-items: baseline;
+      justify-content: center;
+    }
+    .clueNumber {
+      font-family: 'Libre Franklin';
+      font-size: 20px;
+      font-weight: 100;
+      margin: 0px;
+    }
+    .crosswordAnswer {
+      font-family: 'Libre Franklin';
+      font-size: 25px;
+      font-weight: 400;
+      margin: 0px;
     }
     /* Wordle styling */
     .wordleAnswer {
       font-family: "Libre Franklin";
-      font-size: 25px;
+      font-size: 30px;
       margin-top: 10px;
       margin-bottom: 5px;
       text-transform: uppercase;
-      color: var(--greenWordleColor);
     }
-
     /* Spelling Bee and Letter Boxed styling */
     .answerList {
       list-style-type: none;
       padding: 0px;
       margin-top: 10px;
-
     }
     .answerElement {
       font-family: "Libre Franklin";
       font-size: 20px;
+      margin: 2px 0px;
     }
   </style>
 </html>

@@ -24,8 +24,7 @@ function showClueAnswer(clueNumber, clue, answer) {
   document.getElementById("checkPage").remove();
   outsideDiv = addNewElement('div', '', '', 'crosswordClueAndAnswer', document.body);
   addNewElement('p', clueNumber, '', 'clueNumber', outsideDiv);
-  addNewElement('p', clue, '', 'clueText', outsideDiv);
-  addNewElement('p', answer, '', 'crosswordAnswer', outsideDiv);
+  addNewElement('p', answer, '', 'crosswordAnswer', outsideDiv)
 }
 
 // function to display wordle answer (par: answer) 
@@ -71,7 +70,6 @@ function showConnectionsAnswers(theme, group, level) {
 
   // add answer
   addNewElement('p', theme, '', 'themeText', outsideDiv);
-  connectionsGroupDiv = addNewElement('div', '', '', 'groupDiv', outsideDiv);
   addNewElement('p', group, '', 'connectionsAnswerText', outsideDiv);
 }
 
