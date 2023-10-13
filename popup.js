@@ -87,6 +87,7 @@ function sortLengthKeepFirst(listOfAnswers) {
 
 // function to reveal answers to spelling bee and letter boxed game as lists
 function showListAnswers(answers) {
+  document.getElementById("checkPage").remove();
   listOfAnswers = addNewElement('ul', '', '', 'answerList', document.body); // add list <ul> in html
   sortedAnswers = sortLengthKeepFirst(answers);
   for (let i = 0; i < sortedAnswers.length; i++) {
