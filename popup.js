@@ -30,7 +30,8 @@ function showClueAnswer(clueNumber, clue, answer) {
 // function to display wordle answer (par: answer) 
 function showWordleAnswer(answer) {
   document.getElementById("checkPage").remove();
-  addNewElement('p', answer, '', 'wordleAnswer', document.body);
+  box = addNewElement('div', '', '', 'wordleAnswerBox', document.body);
+  addNewElement('p', answer, '', 'wordleAnswer', box);
 }
 
 // function to display reveal buttons for connections
@@ -85,12 +86,14 @@ function sortLengthKeepFirst(listOfAnswers) {
 }
 
 // function to reveal answers to spelling bee and letter boxed game as lists
-function showListAnswers(answers) {
+function showListAnswers(answers, game) {
   document.getElementById("checkPage").remove();
   listOfAnswers = addNewElement('ul', '', '', 'answerList', document.body); // add list <ul> in html
   sortedAnswers = sortLengthKeepFirst(answers);
   for (let i = 0; i < sortedAnswers.length; i++) {
-    addNewElement('li', sortedAnswers[i], '', 'answerElement', listOfAnswers); // add each answer <li> in the <ul> answer list
+    if (i == 0 && game == Game.Letter) addNewElement('li', sortedAnswers[i], '', 'answerElement salmon-bg', listOfAnswers);
+    else if (i == 0 && game == Game.Spelling) addNewElement('li', sortedAnswers[i], '', 'answerElement spelling-bg', listOfAnswers);
+    else addNewElement('li', sortedAnswers[i], '', 'answerElement', listOfAnswers); // add each answer <li> in the <ul> answer list
   }
 }
 
@@ -458,7 +461,7 @@ async function revealSpelling() {
     );
 
     answers = answer_dict.answers;
-    showListAnswers(answers);
+    showListAnswers(answers, game);
   }
 }
 
@@ -512,7 +515,7 @@ async function revealLetter() {
     answers = answer_dict.dictionary;
   
     answers.unshift(answer_dict.ourSolution[0] + " - " + answer_dict.ourSolution[1]);
-    showListAnswers(answers);
+    showListAnswers(answers, game);
   }  
 }
 

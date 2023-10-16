@@ -31,6 +31,10 @@
       --purpleConnectionsColor: #BA81C5;
 
       --greenWordleColor: #538D4E;
+      --lightGreenColor: #BBF6BA;
+      --lightBlueColor: #A7D8FF;
+      --lightSalmonColor: #FAA6A4;
+      --lightYellowColor: #F9E356;
     }
     /* Background styling (off white color) */
     body {
@@ -146,9 +150,11 @@
       display: flex;
       flex-flow: row wrap;
       margin: 15px auto;
-      column-gap: 15px;
+      column-gap: 10px;
       align-items: baseline;
       justify-content: center;
+      background-color: var(--lightBlueColor);
+      width: 300px;
     }
     .clueNumber {
       font-family: 'Libre Franklin';
@@ -163,6 +169,12 @@
       margin: 0px;
     }
     /* Wordle styling */
+    .wordleAnswerBox {
+      text-align: center;
+      width: 125px;
+      margin: 0px auto 0px auto;
+      background-color: var(--lightGreenColor);
+    }
     .wordleAnswer {
       font-family: "Libre Franklin";
       font-size: 30px;
@@ -180,6 +192,16 @@
       font-family: "Libre Franklin";
       font-size: 20px;
       margin: 2px 0px;
+    }
+    .salmon-bg {
+      background-color: var(--lightSalmonColor);
+      width: 350px;
+      margin: auto;
+    }
+    .spelling-bg {
+      background-color: var(--lightYellowColor);
+      width: 250px;
+      margin: auto;
     }
   </style>
 </html>
