@@ -76,7 +76,6 @@ function showConnectionsAnswers(theme, group, level) {
 
 // function to sort a list by descending length keeping the first index in place (spelling bee and letter boxed)
 function sortLengthKeepFirst(listOfAnswers) {
-  console.log(listOfAnswers);
   firstWord = listOfAnswers[0];
   sortedRest = listOfAnswers.slice(1, listOfAnswers.length).sort(function(a, b) {
     return (b.length - a.length);
@@ -158,7 +157,7 @@ function extractCrosswordClue(rawHTML) {
   indexOfClueLabel = indexOfNextNumber(rawHTML, postTimerIndex); // get the index of the highlighted clue label (first number)
   indexOfClueStart = indexOfNextSpace(rawHTML, indexOfClueLabel) + 1; // get the index of the clue text (after space after label)
   indexOfClueEnd = rawHTML.indexOf("\n1\n", indexOfClueStart); // get the index of the clue text end (space before the 1 clue)
-  return [rawHTML.slice(indexOfClueLabel, indexOfClueStart).trim(), rawHTML.slice(indexOfClueStart, indexOfClueEnd)]; // slice the text
+  return [rawHTML.slice(indexOfClueLabel, indexOfClueStart + 1).trim(), rawHTML.slice(indexOfClueStart, indexOfClueEnd)]; // slice the text
 }
 
 // function to extract formatted date from url
@@ -208,7 +207,6 @@ function getMiniDate(fullText) {
   adjusted = fullText.slice("The Mini Crossword".length);
   regex = /\b([A-Z][a-z]+day, [A-Z][a-z]+ \d{1,2}, \d{4})\b/g; // regex to get date from html
   dateString = adjusted.match(regex); // find first match
-  console.log(dateString);
   now = new Date(dateString); // turn string into a date object
   const year = now.getFullYear();
   const month = (now.getMonth() + 1).toString().padStart(2, '0'); // Adding 1 to the month because it's zero-based
@@ -224,7 +222,6 @@ function dateDiffInDays(firstDate) {
 
   const oneDay = 24 * 60 * 60 * 1000; // One day in milliseconds
   const secondDate = new Date();
-  console.log(secondDate);
   const diffInMilliseconds = Math.abs(firstDate - secondDate);
   const diffInDays = Math.trunc(diffInMilliseconds / oneDay);
   return diffInDays;
