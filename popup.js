@@ -153,11 +153,9 @@ function indexOfNextSpace(rawHTML, index) {
 
 // function to extract clue from raw HTML (par: rawHTML) along with clue number/type
 function extractCrosswordClue(rawHTML) {
-  postTimerIndex = rawHTML.indexOf("Rebus"); // get the start of the header index after the timer
-  indexOfClueLabel = indexOfNextNumber(rawHTML, postTimerIndex); // get the index of the highlighted clue label (first number)
-  indexOfClueStart = indexOfNextSpace(rawHTML, indexOfClueLabel) + 1; // get the index of the clue text (after space after label)
-  indexOfClueEnd = rawHTML.indexOf("\n1\n", indexOfClueStart); // get the index of the clue text end (space before the 1 clue)
-  return [rawHTML.slice(indexOfClueLabel, indexOfClueStart + 1).trim(), rawHTML.slice(indexOfClueStart, indexOfClueEnd)]; // slice the text
+  clueRegex = /(\d{1,3}[A,D])\n(.*)\n/; // first group corresponds to clue number e.g. 20A and second to clue text
+  const match = rawHTML.match(clueRegex);
+  return [match[1], match[2]]
 }
 
 // function to extract formatted date from url
