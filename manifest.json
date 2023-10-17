@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "New York Times Puzzle Solver",
-  "description": "Reveal NYT puzzle answers. Solves all Crosswords, Spelling Bees, Wordles, Letter-Boxed, and Connections.",
+  "description": "Reveal NYT puzzle answers. Solves all Crosswords, Spelling Bees, Wordles, Letter Boxed, and Connections.",
   "version": "1.0",
   "icons": {
     "512": "icon.png"
